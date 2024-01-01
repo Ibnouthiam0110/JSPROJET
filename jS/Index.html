@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Calculatrice</title>
+    
+</head>
+
+<body style="background-color: orange;">
+    <img class= "machine" src="image.jpg" width="200PX" height="200PX">
+
+    <h1 class="A"> BIENVENUE DANS VOTRE CALCULATRICE EN LIGNE </h1>
+
+    <form id="calculatorForm">
+        <label for="number1">Nombre 1:</label>
+        <input type="text" id="number1" placeholder="Entrez un nombre" required>
+
+        <label for="number2">Nombre 2:</label>
+        <input type="text" id="number2" placeholder="Entrez un nombre" required>
+
+        <button type="button" onclick="calculate()">Calculer</button> <br> <br> <br> <br> <br> <br> 
+    </form>
+    <section> 
+        <div class="R"> 
+    <h2>Résultats</h2>
+    <p id="sum">Somme  :</p>
+    <p id="product">Produit:</p>
+    <p id="division"> Division  :</p>
+    <p id="subtraction">Soustraction :</p>
+        </div>
+    </section>
+
+    <script>
+        function calculate() {
+          
+            var num1 = document.getElementById('number1').value;
+            var num2 = document.getElementById('number2').value;
+
+      
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Veuillez entrer des nombres valides.");
+                return;
+            }
+
+          
+            if (num2 === '0') {
+                alert("La division par zéro n'est pas autorisée.");
+                return;
+            }
+
+          
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+
+
+            var sum = num1 + num2;
+            var product = num1 * num2;
+            var division = num1 / num2;
+            var subtraction = num1 - num2;
+
+        
+            document.getElementById('sum').textContent = " La Somme fait  : " + sum;
+            document.getElementById('product').textContent = "Le Produit fait : " + product;
+            document.getElementById('division').textContent = "La Division fait : " + division;
+            document.getElementById('subtraction').textContent = "La Soustraction fait : " + subtraction;
+        }
+    </script>
+
+</body>
+
+</html>
